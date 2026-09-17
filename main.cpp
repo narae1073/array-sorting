@@ -9,9 +9,9 @@
 int main(void)
 {
     // 윈도우 콘솔의 출력을 UTF-8(65001) 형식으로 강제 변경
-    system("chcp 65001");
+    //system("chcp 65001");
     // "Active code page: 65001" 메시지 지우기
-    system("cls");
+    //system("cls");
 
     printf("hello this is array sorting example\n\n");
 
