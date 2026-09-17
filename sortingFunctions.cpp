@@ -1,21 +1,47 @@
 #include "sortingFunctions.h"
+#include "arrayUtils.h"
 
-void bubbleSort(int arr[], int length)
+void bubble(int arr[], int length)
 {
-    int i, j, tmp;
-
-    for (j = 0; j < ARRAY_LENGTH; j++)
+    for (int j = 0; j < length; j++)
     {
         // printf("i = %d, j = %d\n", i, j);
+        int swapped = 0;
 
-        for (i = 0; i < ARRAY_LENGTH - (j + 1); i++)
+        for (int i = 0; i < length - (j + 1); i++)
         {
             if (arr[i] > arr[i + 1])
             {
-                tmp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = tmp;
+                swap(&arr[i], &arr[i + 1]);
+                swapped = 1;
             }
+        }
+
+        if (swapped == 0) {
+            break;
+        }
+    }
+}
+
+void selectAndSwap(int arr[], int length)
+{
+    for (int i = 0; i < length - 1; i++)
+    {
+        int argmin = i;
+        // printf("loop %d\n", i);
+
+        for (int j = i + 1; j < length; j++)
+        {
+            if (arr[j] < arr[argmin])
+            {
+                // printf("min = %d\n", min);
+                argmin = j;
+            }
+        }
+
+        if (i != argmin)
+        {
+            swap(&arr[i], &arr[argmin]);
         }
     }
 }
